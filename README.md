@@ -2,6 +2,25 @@
 
 A comprehensive Claude Code skill for designing, simulating, reviewing, and launching SPL tokens on Solana with production-grade tokenomics and safety guardrails.
 
+
+## ⚡ Solana Token Launch Pipeline
+
+```mermaid
+flowchart LR
+    Metadata["Token Metadata & Asset Assets"] --> Bundler["Jito MEV Bundler"]
+    
+    subgraph LaunchCore ["On-Chain Deployment Engine"]
+        Mint["SPL Token Mint Initialization"]
+        Pool["Raydium / Pump.fun Liquidity Pool"]
+        JitoBundle["Atomically Bundled First-Block Buy"]
+    end
+
+    Bundler --> LaunchCore
+    LaunchCore --> Live["Live Token On-Chain (Zero Sniping Risk)"]
+```
+
+---
+
 ---
 
 ## The Problem
